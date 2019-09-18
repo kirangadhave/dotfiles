@@ -5,4 +5,5 @@ endif
 
 call plug#begin('$VIM_PLUGINS')
     Plug 'scrooloose/nerdtree'
+    Plug 'kristijanhusak/vim-hybrid-material'
 call plug#end()

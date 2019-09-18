@@ -18,8 +18,12 @@ fi
 
 source $ZPLUGIN/zplugin.zsh
 
+zplugin ice blockf
 zplugin light zsh-users/zsh-syntax-highlighting
 zplugin light romkatv/powerlevel10k
+
+zplugin ice svn
+zplugin snippet OMZ::plugins/z
 
 for file in $ZSH_HOME/custom/**/*.zsh; do
 	source $file

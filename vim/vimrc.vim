@@ -1,11 +1,5 @@
-if empty(glob('$VIM_PLUGINS/plug.vim'))
-  silent !curl -fLo $VIM_PLUGINS/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
-endif
+source $VIM_HOME/config/pluginmanager.vim
+source $VIM_HOME/config/base_config.vim
+source $VIM_HOME/config/hybrid_line_number_with_switch.vim
 
-call plug#begin('$VIM_PLUGINS')
-    Plug 'scrooloose/nerdtree'
-call plug#end()
-
-set ignorecase
-set smartcase
+imap jj <ESC>

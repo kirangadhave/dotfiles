@@ -2,6 +2,7 @@
 export DOTFILES_HOME="$HOME/.dotfiles"
 export ZSH_HOME="$DOTFILES_HOME/zsh"
 export TMUX_HOME="$DOTFILES_HOME/tmux"
+export VIM_HOME="$DOTFILES_HOME/vim"
 export ZPLUGIN="$ZSH_HOME/zplugin/bin"
 
 declare -A ZPLGM

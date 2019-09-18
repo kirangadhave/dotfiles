@@ -2,7 +2,8 @@
 zsh/zplugin/plugins
 zsh/zplugin/snippets
 zsh/zplugin/completions
-zsh/ran_once
+
+ran_once
 
 tmux/plugins/*
 !tmux/plugins/tpm

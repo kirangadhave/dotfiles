@@ -8,13 +8,6 @@ declare -A ZPLGM
 
 export ZPLGM[HOME_DIR]="$ZSH_HOME/zplugin"
 
-if [ -z "$TMUX" ] && [ -z "$DISPLAY" ]; then
-	if tmux has-session; then
-		exec tmux attach-session
-	else
-		exec tmux
-	fi
-fi
 
 source $ZPLUGIN/zplugin.zsh
 
@@ -33,3 +26,12 @@ done
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ -f ~/.p10k.zsh ]] && source ~/.p10k.zsh
+
+
+if [ -z "$TMUX" ] && [ -z "$DISPLAY" ]; then
+	if tmux has-session; then
+		exec tmux attach-session
+	else
+		exec tmux
+	fi
+fi

@@ -22,7 +22,7 @@ call plug#begin('$VIM_PLUGINS')
     Plug 'mattn/emmet-vim'
     Plug 'dense-analysis/ale'
     Plug 'ianks/vim-tsx' 
-
+    Plug 'Xuyuanp/nerdtree-git-plugin'
     Plug 'tpope/vim-fugitive'
 call plug#end()
 

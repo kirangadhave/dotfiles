@@ -6,4 +6,13 @@ endif
 call plug#begin('$VIM_PLUGINS')
     Plug 'scrooloose/nerdtree'
     Plug 'kristijanhusak/vim-hybrid-material'
+
+    Plug 'pangloss/vim-javascript'
+    Plug 'leafgarland/typescript-vim'
+    Plug 'MaxMEllon/vim-jsx-pretty'
+
+    Plug 'prettier/vim-prettier', { 'do': 'yarn install', 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'markdown', 'vue', 'yaml', 'html'] }
+
 call plug#end()
+let g:prettier#autoformat = 0
+autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.vue,*.yaml,*.html PrettierAsync

@@ -23,7 +23,7 @@ call plug#begin('$VIM_PLUGINS')
     Plug 'dense-analysis/ale'
     Plug 'ianks/vim-tsx' 
 
-
+    Plug 'tpope/vim-fugitive'
 call plug#end()
 
 let g:prettier#autoformat = 0

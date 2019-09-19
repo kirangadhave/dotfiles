@@ -12,3 +12,14 @@ let g:enable_italic_font = 1
 "  let g:hybrid_transparent_background = 1
 
 set laststatus=2
+
+let g:lightline = {
+            \       'colorscheme': "wombat",
+            \       'active': {
+            \       'left': [["mode", "paste"], ["gitbranch", "readonly", "filename", "modified"]]
+            \  },
+            \  'component_function': {
+            \       'gitbranch': "fugitive#head"
+            \  }
+            \}
+ 

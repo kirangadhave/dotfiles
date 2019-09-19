@@ -31,9 +31,12 @@ done
 
 
 if [ -z "$TMUX" ] && [ -z "$DISPLAY" ]; then
-	if tmux has-session; then
-		exec tmux attach-session
-	else
 		exec tmux
-	fi
 fi
+
+# NPM Global config
+npm config set prefix '~/.npm-global'
+
+export PATH=~/.npm-global/bin:$PATH
+
+export PATH=~/anaconda3/bin:$PATH

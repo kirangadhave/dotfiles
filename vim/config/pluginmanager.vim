@@ -7,9 +7,10 @@ call plug#begin('$VIM_PLUGINS')
     Plug 'scrooloose/nerdtree'
     Plug 'kristijanhusak/vim-hybrid-material'
 
-    Plug 'pangloss/vim-javascript'
-    Plug 'leafgarland/typescript-vim'
-    Plug 'MaxMEllon/vim-jsx-pretty'
+    Plug 'neoclide/coc.nvim', {'branch': 'release'}
+    " Plug 'pangloss/vim-javascript'
+    " Plug 'leafgarland/typescript-vim'
+    " Plug 'MaxMEllon/vim-jsx-pretty'
 
     Plug 'prettier/vim-prettier', { 'do': 'yarn install', 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'markdown', 'vue', 'yaml', 'html'] }
 

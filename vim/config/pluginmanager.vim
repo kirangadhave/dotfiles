@@ -24,7 +24,12 @@ call plug#begin('$VIM_PLUGINS')
     Plug 'ianks/vim-tsx' 
     Plug 'Xuyuanp/nerdtree-git-plugin'
     Plug 'tpope/vim-fugitive'
+    Plug 'leafgarland/typescript-vim'
+    Plug 'jiangmiao/auto-pairs'
+    Plug 'pangloss/vim-javascript'
 call plug#end()
 
 let g:prettier#autoformat = 0
 autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.vue,*.yaml,*.html PrettierAsync
+
+let g:typescript_indent_disable = 1

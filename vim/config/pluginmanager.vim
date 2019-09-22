@@ -6,30 +6,25 @@ endif
 call plug#begin('$VIM_PLUGINS')
     Plug 'scrooloose/nerdtree'
     Plug 'kristijanhusak/vim-hybrid-material'
-
     Plug 'neoclide/coc.nvim', {'branch': 'release'}
-
-    Plug 'prettier/vim-prettier', { 'do': 'yarn install', 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'markdown', 'vue', 'yaml', 'html'] }
     Plug 'junegunn/fzf.vim'
     Plug 'tomtom/tcomment_vim'    
     Plug 'easymotion/vim-easymotion'
     Plug 'airblade/vim-gitgutter'
-    Plug 'nathanaelkane/vim-indent-guides'
     Plug 'itchyny/lightline.vim'
     Plug 'terryma/vim-multiple-cursors'
     Plug 'tpope/vim-eunuch'
     Plug 'tpope/vim-surround'
     Plug 'mattn/emmet-vim'
-    Plug 'dense-analysis/ale'
-    Plug 'ianks/vim-tsx' 
     Plug 'Xuyuanp/nerdtree-git-plugin'
     Plug 'tpope/vim-fugitive'
-    Plug 'leafgarland/typescript-vim'
     Plug 'jiangmiao/auto-pairs'
-    Plug 'pangloss/vim-javascript'
+  "  Plug 'HerringtonDarkholme/yats.vim'
+    Plug 'sheerun/vim-polyglot'
+    Plug 'ryanoasis/vim-devicons'
 call plug#end()
 
-let g:prettier#autoformat = 0
-autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.vue,*.yaml,*.html PrettierAsync
+let g:coc_global_extensions = ['coc-tslint-plugin', 'coc-tsserver', 'coc-emmet', 'coc-css', 'coc-html', 'coc-json', 'coc-yank', 'coc-prettier']
 
-let g:typescript_indent_disable = 1
+set rtp+=$VIM_HOME/plugins/nerdtree
+

@@ -38,4 +38,4 @@ nnoremap gsv :so $MYVIMRC<CR>
 hi Pmenu ctermbg=gray
 hi PmenuSel ctermbg=lightgray
 
-
+highlight LineNr cterm=bold ctermfg=LightGray ctermbg=None

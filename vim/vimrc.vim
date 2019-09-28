@@ -14,3 +14,5 @@ set laststatus=2
 " Quickly edit/reload this configuration file
 nnoremap gev :e $MYVIMRC<CR>wgf<CR>
 nnoremap gsv :so $MYVIMRC<CR>
+
+set wildignore+=**/node_modules/**

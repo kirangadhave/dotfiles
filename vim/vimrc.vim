@@ -16,3 +16,6 @@ nnoremap gev :e $MYVIMRC<CR>wgf<CR>
 nnoremap gsv :so $MYVIMRC<CR>
 
 set wildignore+=**/node_modules/**
+
+nnoremap \ :FindUnderCursor<CR>
+nnoremap <leader>\ :Find<SPACE>

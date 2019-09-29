@@ -8,19 +8,20 @@ call plug#begin('$VIM_PLUGINS')
             Plug 'flazz/vim-colorschemes'
    
     " NerdTree
-        Plug 'scrooloose/nerdtree'
-        Plug 'Xuyuanp/nerdtree-git-plugin'
-        Plug 'ryanoasis/vim-devicons'
+""        Plug 'scrooloose/nerdtree'
+""        Plug 'Xuyuanp/nerdtree-git-plugin'
+""        Plug 'ryanoasis/vim-devicons'
 
     " FZF super fast search
-        Plug '/usr/local/opt/fsz'
+        set rtp+=~/.fzf 
+        Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
         Plug 'junegunn/fzf.vim'
 
     " Commenting 
         Plug 'tpope/vim-commentary'
 
     " Easymotion 
-        Plug 'easymotion/vim-easymotion'
+""        Plug 'easymotion/vim-easymotion'
 
     " Git
         Plug 'airblade/vim-gitgutter'
@@ -51,13 +52,22 @@ call plug#begin('$VIM_PLUGINS')
             Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
 
     " Rainbow highlighting
-        Plug 'thiagoalessio/rainbow_levels.vim'
+""        Plug 'thiagoalessio/rainbow_levels.vim'
 
 call plug#end()
 
 set rtp+=$VIM_HOME/plugins/nerdtree
 
-let g:coc_global_extensions = ['coc-tslint-plugin', 'coc-tsserver', 'coc-emmet', 'coc-css', 'coc-html', 'coc-json', 'coc-yank', 'coc-prettier']
+let g:coc_global_extensions = ['coc-tslint-plugin', 'coc-tsserver', 'coc-emmet', 'coc-css', 'coc-html', 'coc-json', 'coc-yank', 'coc-prettier', 'coc-pairs']
 
 let g:prettier#autoformat = 0
 autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.vue,*.yaml,*.html PrettierAsync
+
+nnoremap <silent> <C-p> :FZF<CR>
+
+command! -bang -nargs=* Find call fzf#vim#grep('rg --column --line-number --no-heading --fixed-strings --ignore-case --no-ignore --hidden --follow --glob "!.git/*,**/node_modules/*" --color "always" '.shellescape(<q-args>).'| tr -d "\017"', 1, <bang>0)
+
+command! -bang -nargs=* FindUnderCursor call fzf#vim#grep('rg --column --line-number --no-heading --fixed-strings --ignore-case --no-ignore --hidden --follow --glob "!.git/*,**/node_modules/*" --color "always" '.shellescape(expand('<cword>')).'| tr -d "\017"', 1, <bang>0)
+
+set grepprg=rg\ --vimgrep
+

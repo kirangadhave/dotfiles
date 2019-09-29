@@ -16,3 +16,4 @@ nnoremap gsv :so $MYVIMRC<CR>
 
 set wildignore+=**/node_modules/**
 
+nnoremap <C-e> :tabedit %<CR>

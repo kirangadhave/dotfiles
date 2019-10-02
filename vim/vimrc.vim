@@ -19,4 +19,6 @@ set wildignore+=**/node_modules/**
 nnoremap <C-q> :close<CR>
 nnoremap <C-e> :tabedit %<CR>
 
+nnoremap <leader>r :checktime<CR>
+
 nnoremap <silent> <leader>ca :call CocAction('codeAction')<CR>

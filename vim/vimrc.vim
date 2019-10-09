@@ -21,4 +21,6 @@ nnoremap <C-e> :tabedit %<CR>
 
 nnoremap <leader>r :checktime<CR>
 
-nnoremap <silent> <leader>ca :call CocAction('codeAction')<CR>
+nmap<leader>ca <Plug>(coc-codeaction)
+
+nmap <silent> <C-[> <Plug>(coc-diagnostic-next)

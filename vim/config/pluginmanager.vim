@@ -8,9 +8,9 @@ call plug#begin('$VIM_PLUGINS')
             Plug 'flazz/vim-colorschemes'
    
     " NerdTree
-""        Plug 'scrooloose/nerdtree'
-""        Plug 'Xuyuanp/nerdtree-git-plugin'
-""        Plug 'ryanoasis/vim-devicons'
+        Plug 'scrooloose/nerdtree'
+        Plug 'Xuyuanp/nerdtree-git-plugin'
+        Plug 'ryanoasis/vim-devicons'
 
     " FZF super fast search
         set rtp+=~/.fzf 

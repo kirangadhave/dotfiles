@@ -29,7 +29,11 @@ zplugin light zsh-users/zsh-completions
 
 
 autoload -Uz compinit
-compinit
+
+for dump in ~/.zcompdump(N.mh+24); do
+  compinit
+done
+compinit -C
 
 zplugin cdreplay -q
 

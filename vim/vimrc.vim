@@ -24,3 +24,5 @@ nnoremap <leader>r :checktime<CR>
 nmap<leader>ca <Plug>(coc-codeaction)
 
 nmap <silent> <C-[> <Plug>(coc-diagnostic-next)
+
+inoremap <C-a> <C-o>A

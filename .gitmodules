@@ -7,3 +7,6 @@
 [submodule "zsh/custom/fzf"]
 	path = zsh/custom/fzf
 	url = git@github.com:junegunn/fzf.git
+[submodule "tmux/.tmux"]
+	path = tmux/.tmux
+	url = https://github.com/gpakosz/.tmux.git

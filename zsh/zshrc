@@ -43,8 +43,7 @@ for file in $ZSH_HOME/custom/**/*.zsh; do
 done
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ -f ~/.p10k.zsh ]] && source ~/.p10k.zsh
-
+source $ZSH_HOME/copy_out/p10k.zsh
 
 if [ -z "$TMUX" ] && [ -z "$DISPLAY" ]; then
 		exec tmux
@@ -56,4 +55,3 @@ npm config set prefix '~/.npm-global'
 export PATH=~/.npm-global/bin:$PATH
 
 export PATH=~/anaconda3/bin:$PATH
-

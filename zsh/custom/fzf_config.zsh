@@ -44,3 +44,54 @@ function fif() {
   if [ ! "$#" -gt 0 ]; then echo "Need a string to search for!"; return 1; fi
   rg --files-with-matches --no-messages "$1" | fzf --preview "highlight -O ansi -l {} 2> /dev/null | rg --colors 'match:bg:yellow' --ignore-case --pretty --context 10 '$1' || rg --ignore-case --pretty --context 10 '$1' {}"
 }
+
+function vg() {
+    local file
+    if [[ -z $1 ]]
+    then
+    file="$(
+        rg --files | fzf -0 -1
+    )"
+    else
+    file="$(
+        rg --files | fzf -0 -1 -q "$1"
+    )"
+    fi 
+
+    if [[ -n $file ]]
+    then
+        vim "$file"
+    fi
+}
+
+function vgl() {
+    local file
+    local line
+    if [[ -z $1 ]]
+    then
+        echo "Enter search term"
+        return -1
+    fi
+
+    if [[ -z $2 ]]
+    then
+        echo "Enter line number"
+        return -1
+    fi
+
+
+    if ! [[ "$2" = <-> ]]
+    then
+        echo "Enter valid number"
+        return -1
+    fi
+
+
+    read -r file line <<<"$(rg --files | fzf -0 -1 -q "$1")"
+
+    if [[ -n $file ]]
+    then
+        vim $file +$2
+    fi
+
+}

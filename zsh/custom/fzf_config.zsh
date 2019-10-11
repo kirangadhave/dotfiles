@@ -60,7 +60,7 @@ function vg() {
 
     if [[ -n $file ]]
     then
-        vim "$file"
+        nvim "$file"
     fi
 }
 
@@ -91,7 +91,7 @@ function vgl() {
 
     if [[ -n $file ]]
     then
-        vim $file +$2
+        nvim $file +$2
     fi
 
 }

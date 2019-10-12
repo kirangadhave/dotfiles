@@ -11,3 +11,22 @@ command! -bang -nargs=* FindUnderCursor call fzf#vim#grep('rg --column --line-nu
 
 set grepprg=rg\ --vimgrep
 
+function! s:session_list()
+    redir => sessions
+        silent !ls -d ~/.vim-sessions/*
+    redir END
+
+    return split(sessions, '\n')
+endfunction
+
+function! s:load_session(e)
+    :execute 'source' a:e
+
+endfunction
+
+nnoremap <silent> <Leader>sr :call fzf#run({
+\ 'source': reverse(<sid>session_list()),
+\ 'sink': function('<sid>load_session'),
+\ 'options': "+m",
+\ 'down': len(<sid>session_list()) + 2
+\})<CR>

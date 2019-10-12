@@ -55,3 +55,4 @@ silent !mkdir ~/.vim-sessions > /dev/null 2>&1
 
 exec 'nnoremap <Leader>ss :mksession! ' . g:sessions_dir . '/*.vim<C-D><BS><BS><BS><BS><BS>'
 
+nnoremap <leader><Space> :noh<CR>

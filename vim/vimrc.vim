@@ -25,7 +25,7 @@ nmap<leader>ca <Plug>(coc-codeaction)
 
 nmap <silent> <C-[> <Plug>(coc-diagnostic-next)
 
-inoremap <C-a> <C-o>A
+inoremap <C-a> <C-o>a
 
 highlight StatusLineNC cterm=bold ctermfg=white ctermbg=darkgray
 
@@ -56,3 +56,8 @@ silent !mkdir ~/.vim-sessions > /dev/null 2>&1
 exec 'nnoremap <Leader>ss :mksession! ' . g:sessions_dir . '/*.vim<C-D><BS><BS><BS><BS><BS>'
 
 nnoremap <leader><Space> :noh<CR>
+
+let g:user_emmet_expandabbr_key='<Tab>'
+imap <expr> <tab> emmet#expandAbbrIntelligent("\<tab>")
+
+hi Visual term=reverse cterm=reverse

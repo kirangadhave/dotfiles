@@ -26,3 +26,33 @@ nmap<leader>ca <Plug>(coc-codeaction)
 nmap <silent> <C-[> <Plug>(coc-diagnostic-next)
 
 inoremap <C-a> <C-o>A
+
+highlight StatusLineNC cterm=bold ctermfg=white ctermbg=darkgray
+
+augroup BgHighlight
+    autocmd!
+    autocmd WinEnter * set relativenumber
+    autocmd WinLeave * set norelativenumber
+augroup END
+
+augroup CursorLineOnlyInActiveWindow
+  autocmd!
+  autocmd VimEnter,WinEnter,BufWinEnter * setlocal cursorline
+  autocmd WinLeave * setlocal nocursorline
+augroup END  
+
+augroup BgHighlight
+    autocmd!
+    autocmd WinEnter * set colorcolumn=120
+    autocmd WinLeave * set colorcolumn=0
+augroup END
+
+
+
+let g:sessions_dir = '~/.vim-sessions'
+
+silent !mkdir ~/.vim-sessions > /dev/null 2>&1
+
+exec 'nnoremap <Leader>ss :mksession! ' . g:sessions_dir . '/*.vim<C-D><BS><BS><BS><BS><BS>'
+exec 'nnoremap <Leader>sr :so ' . g:sessions_dir. '/*.vim<C-D><BS><BS><BS><BS><BS>'
+

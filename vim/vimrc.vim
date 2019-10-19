@@ -5,6 +5,7 @@ source $VIM_HOME/config/nerdTree_config.vim
 source $VIM_HOME/config/lightline_config.vim
 source $VIM_HOME/config/colorscheme.vim
 source $VIM_HOME/config/fzf_config.vim
+source $VIM_HOME/config/vim_session.vim
 
 imap jj <ESC>
 
@@ -46,14 +47,6 @@ augroup BgHighlight
     autocmd WinEnter * set colorcolumn=120
     autocmd WinLeave * set colorcolumn=0
 augroup END
-
-
-
-let g:sessions_dir = '~/.vim-sessions'
-
-silent !mkdir ~/.vim-sessions > /dev/null 2>&1
-
-exec 'nnoremap <Leader>ss :mksession! ' . g:sessions_dir . '/*.vim<C-D><BS><BS><BS><BS><BS>'
 
 nnoremap <leader><Space> :noh<CR>
 

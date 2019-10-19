@@ -16,10 +16,13 @@ set grepprg=rg\ --vimgrep
 function! s:session_list()
     redir => sessions
         silent !ls -d ~/.vim-sessions/* 
+        silent !ls -d ~/.vim-sessions/.* 
     redir END
-    let filteredList = split(sessions, '\n')[1:]
+    let splitList = split(sessions, '\n')  
+    let filteredList = splitList[1:]
 
     call filter(filteredList, 'v:val != ""')
+    call filter(filteredList, {idx, val -> stridx(val, ":!ls -d") == -1})
 
     return filteredList
 endfunction

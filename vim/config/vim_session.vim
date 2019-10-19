@@ -25,6 +25,10 @@ fu! SaveSess()
 endfunction
 
 fu! RestoreSess()
+    if !empty(argv())
+        return
+    endif
+
     redir => directory
         silent :!git rev-parse --show-toplevel
     redir END
@@ -58,4 +62,4 @@ endfunction
 nnoremap <Leader>ss :call SaveSess()<CR>
 
 autocmd VimLeave,VimLeavePre * call SaveSess()
-autocmd VimEnter * nested if argc() == 0 | call RestoreSess() | endif
+autocmd VimEnter * nested call RestoreSess()

@@ -23,6 +23,8 @@ function! s:session_list()
 
     call filter(filteredList, 'v:val != ""')
     call filter(filteredList, {idx, val -> stridx(val, ":!ls -d") == -1})
+    call filter(filteredList, {idx, val -> stridx(val, "shell return") == -1})
+    call filter(filteredList, {idx, val -> stridx(val, "no matches found") == -1})
 
     return filteredList
 endfunction

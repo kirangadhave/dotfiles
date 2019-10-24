@@ -54,3 +54,5 @@ let g:user_emmet_expandabbr_key='<Tab>'
 imap <expr> <tab> emmet#expandAbbrIntelligent("\<tab>")
 
 hi Visual term=reverse cterm=reverse
+
+map <leader>rt :!ctags --extra=+f -R --exclude=.git --exclude=node_modules --exclude=.vim --exclude=.vscode *<CR><CR>

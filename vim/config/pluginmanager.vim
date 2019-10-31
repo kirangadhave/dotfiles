@@ -53,6 +53,8 @@ call plug#begin('$VIM_PLUGINS')
 
             Plug 'alvan/vim-closetag'
 
+
+    Plug 'mtth/scratch.vim'
     " Rainbow highlighting
 ""        Plug 'thiagoalessio/rainbow_levels.vim'
 
@@ -105,3 +107,5 @@ let g:closetag_shortcut = '>'
 " Add > at current position without closing the current tag, default is ''
 "
 let g:closetag_close_shortcut = '<leader>>' 
+
+nnoremap ss :call scratch#open(0)<CR>

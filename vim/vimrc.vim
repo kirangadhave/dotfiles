@@ -56,3 +56,5 @@ imap <expr> <tab> emmet#expandAbbrIntelligent("\<tab>")
 hi Visual term=reverse cterm=reverse
 
 map <leader>rt :!ctags --extra=+f -R --exclude=.git --exclude=node_modules --exclude=.vim --exclude=.vscode *<CR><CR>
+
+autocmd BufEnter * :syntax sync fromstart

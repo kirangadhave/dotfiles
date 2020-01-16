@@ -52,7 +52,7 @@ call plug#begin('$VIM_PLUGINS')
             Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
 
             Plug 'alvan/vim-closetag'
-
+            Plug 'mlaursen/vim-react-snippets'
 
     Plug 'mtth/scratch.vim'
     " Rainbow highlighting
@@ -62,7 +62,7 @@ call plug#end()
 
 set rtp+=$VIM_HOME/plugins/nerdtree
 
-let g:coc_global_extensions = ['coc-tslint-plugin', 'coc-tsserver', 'coc-emmet', 'coc-css', 'coc-html', 'coc-json', 'coc-yank', 'coc-prettier', 'coc-pairs', 'coc-marketplace', 'coc-import-cost', 'coc-styled-components']
+let g:coc_global_extensions = ['coc-tslint-plugin', 'coc-tsserver', 'coc-emmet', 'coc-css', 'coc-html', 'coc-json', 'coc-yank', 'coc-prettier', 'coc-pairs', 'coc-marketplace', 'coc-import-cost', 'coc-styled-components', 'coc-snippets']
 
 let g:prettier#autoformat = 0
 autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.vue,*.yaml,*.html PrettierAsync
@@ -109,3 +109,18 @@ let g:closetag_shortcut = '>'
 let g:closetag_close_shortcut = '<leader>>' 
 
 nnoremap ss :call scratch#open(0)<CR>
+
+inoremap <silent><expr> <TAB>
+      \ pumvisible() ? coc#_select_confirm() :
+      \ coc#expandableOrJumpable() ? "\<C-r>=coc#rpc#request('doKeymap', ['snippets-expand-jump',''])\<CR>" :
+      \ <SID>check_back_space() ? "\<TAB>" :
+      \ coc#refresh()
+
+function! s:check_back_space() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
+
+let g:coc_snippet_next = '<tab>'
+
+imap <C-l> <Plug>(coc-snippets-expand)

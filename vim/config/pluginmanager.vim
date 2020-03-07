@@ -124,3 +124,6 @@ endfunction
 let g:coc_snippet_next = '<tab>'
 
 imap <C-l> <Plug>(coc-snippets-expand)
+
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)

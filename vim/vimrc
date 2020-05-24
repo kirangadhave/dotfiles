@@ -1,6 +1,9 @@
 source $VIM_HOME/configs/base_config.vim
 source $VIM_HOME/configs/plugin-manager.vim
 source $VIM_HOME/configs/nerdtree-config.vim
+source $VIM_HOME/configs/fzf-config.vim
+source $VIM_HOME/configs/hybrid-line-number.vim
+source $VIM_HOME/configs/lightline-config.vim
 
 " Move to colorscheme.vim
 set background=dark
@@ -10,4 +13,34 @@ imap jj <ESC>
 
 nnoremap <leader>vc :so $MYVIMRC<CR>
 
+set wildignore+=**/node_modules/**
+nnoremap <C-q> :close<CR>
+nnoremap <C-e> :tabedit %<CR>
+highlight StatusLineNC cterm=bold ctermfg=white ctermbg=darkgray
 
+nnoremap <leader>r :checktime<CR>
+
+inoremap <C-a> <C-o>a
+
+augroup BgHighlight
+    autocmd!
+    autocmd WinEnter * set relativenumber
+    autocmd WinLeave * set norelativenumber
+augroup END
+
+augroup BgHighlight
+    autocmd!
+    autocmd WinEnter * set colorcolumn=120
+    autocmd WinLeave * set colorcolumn=0
+augroup END
+
+augroup CursorLineOnlyInActiveWindow
+  autocmd!
+  autocmd VimEnter,WinEnter,BufWinEnter * setlocal cursorline
+augroup END
+  autocmd WinLeave * setlocal nocursorline
+
+nnoremap <leader><Space> :noh<CR>
+hi Visual term=reverse cterm=reverse
+
+autocmd BufEnter * :syntax sync fromstart

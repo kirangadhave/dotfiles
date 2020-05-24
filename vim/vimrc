@@ -1,0 +1,13 @@
+source $VIM_HOME/configs/base_config.vim
+source $VIM_HOME/configs/plugin-manager.vim
+source $VIM_HOME/configs/nerdtree-config.vim
+
+" Move to colorscheme.vim
+set background=dark
+colorscheme molokai
+
+imap jj <ESC>
+
+nnoremap <leader>vc :so $MYVIMRC<CR>
+
+

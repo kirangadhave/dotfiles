@@ -3,6 +3,7 @@ export DOTFILES_HOME="$HOME/.dotfiles"
 export ZSH_HOME="$DOTFILES_HOME/zsh"
 export TMUX_HOME="$DOTFILES_HOME/tmux"
 export VIM_HOME="$DOTFILES_HOME/vim"
+export TMUX_HOME="$DOTFILES_HOME/tmux"
 export TMUX_PLUGINS="$TMUX_HOME/plugins"
 export VIM_PLUGINS="$VIM_HOME/plugins"
 export GIT="$DOTFILES_HOME/git"
@@ -17,3 +18,6 @@ ln -sf $VIM_HOME/vimrc $HOME/.vimrc
 # Copy zsh confgi
 ln -sf $ZSH_HOME/zshrc $HOME/.zshrc
 
+# Copy tmux config
+ln -sf $TMUX_HOME/tmux-conf/.tmux.conf $HOME/.tmux.conf
+ln -sf $TMUX_HOME/tmux.conf.local.custom $HOME/.tmux.conf.local

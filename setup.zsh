@@ -13,3 +13,7 @@ ln -sf $ALACRITTY_HOME/alacritty.yml $HOME/.alacritty.yml
 
 # Copy vim config
 ln -sf $VIM_HOME/vimrc $HOME/.vimrc
+
+# Copy zsh confgi
+ln -sf $ZSH_HOME/zshrc $HOME/.zshrc
+

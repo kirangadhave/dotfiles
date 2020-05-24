@@ -1,3 +1,19 @@
+# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
+# Initialization code that may require console input (password prompts, [y/n]
+# confirmations, etc.) must go above this block; everything else may go below.
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
+
+export DOTFILES_HOME="$HOME/.dotfiles"
+export ZSH_HOME="$DOTFILES_HOME/zsh"
+export TMUX_HOME="$DOTFILES_HOME/tmux"
+export VIM_HOME="$DOTFILES_HOME/vim"
+export TMUX_PLUGINS="$TMUX_HOME/plugins"
+export VIM_PLUGINS="$VIM_HOME/plugins"
+export GIT="$DOTFILES_HOME/git"
+export ALACRITTY_HOME="$DOTFILES_HOME/alacritty"
+
 ### Added by Zinit's installer
 if [[ ! -f $HOME/.zinit/bin/bin/zinit.zsh ]]; then
     print -P "%F{33}▓▒░ %F{220}Installing %F{33}DHARMA%F{220} Initiative Plugin Manager (%F{33}zdharma/zinit%F{220})…%f"
@@ -23,8 +39,9 @@ zinit light zdharma/fast-syntax-highlighting
 zinit load zdharma/history-search-multi-word
 
 # # Load the pure theme, with zsh-async library that's bundled with it.
-zinit ice pick"async.zsh" src"pure.zsh"
-zinit light sindresorhus/pure
+# zinit ice pick"async.zsh" src"pure.zsh"
+# zinit light sindresorhus/pure
+zinit ice depth=1; zinit light romkatv/powerlevel10k
 
 # Binary release in archive, from GitHub-releases page.
 # # After automatic unpacking it provides program "fzf".
@@ -56,3 +73,6 @@ export PATH=~/anaconda3/bin:$PATH
 
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f '/Users/kirangadhave/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/kirangadhave/google-cloud-sdk/path.zsh.inc'; fi
+
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh

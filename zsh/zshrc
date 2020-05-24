@@ -1,0 +1,82 @@
+# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
+# Initialization code that may require console input (password prompts, [y/n]
+# confirmations, etc.) must go above this block; everything else may go below.
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
+
+export DOTFILES_HOME="$HOME/.dotfiles"
+export ZSH_HOME="$DOTFILES_HOME/zsh"
+export TMUX_HOME="$DOTFILES_HOME/tmux"
+export VIM_HOME="$DOTFILES_HOME/vim"
+export TMUX_PLUGINS="$TMUX_HOME/plugins"
+export VIM_PLUGINS="$VIM_HOME/plugins"
+export GIT="$DOTFILES_HOME/git"
+export ALACRITTY_HOME="$DOTFILES_HOME/alacritty"
+
+### Added by Zinit's installer
+if [[ ! -f $HOME/.zinit/bin/bin/zinit.zsh ]]; then
+    print -P "%F{33}▓▒░ %F{220}Installing %F{33}DHARMA%F{220} Initiative Plugin Manager (%F{33}zdharma/zinit%F{220})…%f"
+    command mkdir -p "$HOME/.zinit/bin" && command chmod g-rwX "$HOME/.zinit/bin"
+    command git clone https://github.com/zdharma/zinit "$HOME/.zinit/bin/bin" && \
+        print -P "%F{33}▓▒░ %F{34}Installation successful.%f%b" || \
+        print -P "%F{160}▓▒░ The clone has failed.%f%b"
+fi
+
+source "$HOME/.zinit/bin/bin/zinit.zsh"
+autoload -Uz _zinit
+(( ${+_comps} )) && _comps[zinit]=_zinit
+### End of Zinit's installer chunk
+
+
+# Two regular plugins loaded without investigating.
+zinit light zsh-users/zsh-autosuggestions
+zinit light zdharma/fast-syntax-highlighting
+
+# Plugin history-search-multi-word loaded with investigating.
+zinit load zdharma/history-search-multi-word
+
+# # Load the pure theme, with zsh-async library that's bundled with it.
+# zinit ice pick"async.zsh" src"pure.zsh"
+# zinit light sindresorhus/pure
+zinit ice depth=1; zinit light romkatv/powerlevel10k
+
+# Binary release in archive, from GitHub-releases page.
+# # After automatic unpacking it provides program "fzf".
+zinit ice from"gh-r" as"program"
+zinit load junegunn/fzf-bin
+
+# Add plugin "z"
+zplugin ice svn
+zplugin snippet OMZ::plugins/z
+
+# Git plugin
+zplugin snippet "https://github.com/robbyrussell/oh-my-zsh/blob/master/plugins/git/git.plugin.zsh"
+
+# Zsh Completions
+zplugin ice blockf \
+    atpull'zplg creinstall zsh-users/zsh-completions'
+zplugin light zsh-users/zsh-completions
+
+export TERM=screen-256color
+
+# Load custom files
+for file in $ZSH_HOME/custom/**/*.zsh; do
+    source $file
+done
+
+
+# NPM Global config
+npm config set prefix '~/.npm-global'
+
+export PATH=~/.npm-global/bin:$PATH
+export PATH=~/anaconda3/bin:$PATH
+
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/kirangadhave/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/kirangadhave/google-cloud-sdk/path.zsh.inc'; fi
+
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh

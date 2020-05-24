@@ -1,1 +1,3 @@
-# Dotfile
+# Dotfiles Directory
+
+My dot files.

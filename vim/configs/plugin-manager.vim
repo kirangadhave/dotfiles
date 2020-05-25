@@ -36,5 +36,29 @@ call plug#begin('$VIM_PLUGINS')
 
     " Lightline status plugin
         Plug 'itchyny/lightline.vim'
+
+    " Typescript
+        Plug 'pangloss/vim-javascript'
+        Plug 'leafgarland/typescript-vim'
+        Plug 'peitalin/vim-jsx-typescript'
+        Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
+        Plug 'neoclide/coc.nvim', {'branch': 'release'}
+
 call plug#end()
 
+" For faster syncing of syntax
+autocmd BufEnter *.{js,jsx,ts,tsx} :syntax sync fromstart
+autocmd BufLeave *.{js,jsx,ts,tsx} :syntax sync clear
+
+let g:coc_global_extensions = [
+  \ 'coc-tsserver'
+  \ ]
+
+
+if isdirectory('./node_modules') && isdirectory('./node_modules/prettier')
+  let g:coc_global_extensions += ['coc-prettier']
+endif
+
+if isdirectory('./node_modules') && isdirectory('./node_modules/eslint')
+  let g:coc_global_extensions += ['coc-eslint']
+endif

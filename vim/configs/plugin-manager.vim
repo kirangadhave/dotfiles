@@ -57,8 +57,8 @@ autocmd BufLeave *.{js,jsx,ts,tsx} :syntax sync clear
 " Config from coc
 let g:coc_global_extensions = ['coc-tslint-plugin', 'coc-tsserver', 'coc-emmet', 'coc-css', 'coc-html', 'coc-json', 'coc-yank', 'coc-prettier', 'coc-pairs', 'coc-marketplace', 'coc-import-cost', 'coc-styled-components']
 
-let g:prettier#autoformat = 0
-autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.vue,*.yaml,*.html PrettierAsync
+" let g:prettier#autoformat = 0
+" autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.vue,*.yaml,*.html PrettierAsync
 
 " filenames like *.xml, *.html, *.xhtml, ...
 " These are the file extensions where this plugin is enabled.
@@ -86,7 +86,7 @@ let g:closetag_xhtml_filetypes = 'xhtml,jsx,tsx'
 let g:closetag_emptyTags_caseSensitive = 1
 
 " dict
-" Disables auto-close if not in a "valid" region (based on filetype)
+" Disables auto-close if not in a 'valid' region (based on filetype)
 "
 let g:closetag_regions = {
     \ 'typescript.tsx': 'jsxRegion,tsxRegion',

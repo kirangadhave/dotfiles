@@ -4,6 +4,7 @@ source $VIM_HOME/configs/nerdtree-config.vim
 source $VIM_HOME/configs/fzf-config.vim
 source $VIM_HOME/configs/hybrid-line-number.vim
 source $VIM_HOME/configs/lightline-config.vim
+source $VIM_HOME/configs/startify-config.vim
 
 " Move to colorscheme.vim
 set background=dark

@@ -40,6 +40,9 @@ call plug#begin('$VIM_PLUGINS')
     " HTML
         Plug 'mattn/emmet-vim'
 
+    " Startify
+        Plug 'mhinz/vim-startify' 
+
     " Typescript
         Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
         Plug 'neoclide/coc.nvim', {'branch': 'release'}

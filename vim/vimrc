@@ -46,3 +46,5 @@ hi Visual term=reverse cterm=reverse
 autocmd BufEnter * :syntax sync fromstart
 
 let @/ = ""
+
+hi MatchParen ctermfg=208 ctermbg=bg

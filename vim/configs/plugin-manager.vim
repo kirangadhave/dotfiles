@@ -42,6 +42,7 @@ call plug#begin('$VIM_PLUGINS')
 
     " Startify
         Plug 'mhinz/vim-startify' 
+        
 
     " Typescript
         Plug 'styled-components/vim-styled-components', { 'branch': 'main' }

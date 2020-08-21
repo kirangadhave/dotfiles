@@ -5,6 +5,7 @@ source $VIM_HOME/configs/fzf-config.vim
 source $VIM_HOME/configs/hybrid-line-number.vim
 source $VIM_HOME/configs/lightline-config.vim
 source $VIM_HOME/configs/startify-config.vim
+source $VIM_HOME/configs/python-config.vim
 
 " Move to colorscheme.vim
 set background=dark
@@ -48,3 +49,6 @@ autocmd BufEnter * :syntax sync fromstart
 let @/ = ""
 
 hi MatchParen ctermfg=208 ctermbg=bg
+
+set splitbelow
+set splitright

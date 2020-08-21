@@ -1,3 +1,5 @@
+set rtp +=~/.vim
+
 if empty(glob('~/.vim/autoload/plug.vim'))
   silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
     \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
@@ -15,7 +17,7 @@ call plug#begin('$VIM_PLUGINS')
         Plug 'ryanoasis/vim-devicons'
 
     " FZF
-        Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+        Plug 'junegunn/fzf', {'dir': '~/opt/fzf'}
         Plug 'junegunn/fzf.vim'
 
      " Commenting 
@@ -28,6 +30,8 @@ call plug#begin('$VIM_PLUGINS')
         Plug 'airblade/vim-gitgutter'
         Plug 'tpope/vim-fugitive'
 
+        Plug 'jiangmiao/auto-pairs'
+
     " Vim eunuch 
         Plug 'tpope/vim-eunuch'
 
@@ -39,27 +43,46 @@ call plug#begin('$VIM_PLUGINS')
 
     " HTML
         Plug 'mattn/emmet-vim'
+        Plug 'Quramy/vim-js-pretty-template'
 
     " Startify
         Plug 'mhinz/vim-startify' 
         
+        Plug 'pangloss/vim-javascript'
 
     " Typescript
         Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
-        Plug 'neoclide/coc.nvim', {'branch': 'release'}
+        Plug 'neoclide/coc.nvim', {'do': 'yarn install --frozen-lockfile'}
         Plug 'HerringtonDarkholme/yats.vim'
         Plug 'MaxMEllon/vim-jsx-pretty'
         Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
         Plug 'alvan/vim-closetag'
+        Plug 'heavenshell/vim-jsdoc', { 
+              \ 'for': ['javascript', 'javascript.jsx','typescript'], 
+              \ 'do': 'make install'
+              \}
+
+    " Python
+        Plug 'vim-scripts/indentpython.vim'  
+        Plug 'Vimjas/vim-python-pep8-indent'
+        Plug 'numirias/semshi', {'do': ':UpdateRemotePlugins'}
+        Plug 'jeetsukumaran/vim-pythonsense'
+
 
 call plug#end()
+
+set updatetime=300
+
+nmap <silent> <C-l> <Plug>(jsdoc)
+
+echo $VIM_PLUGINS
 
 " For faster syncing of syntax
 autocmd BufEnter *.{js,jsx,ts,tsx} :syntax sync fromstart
 autocmd BufLeave *.{js,jsx,ts,tsx} :syntax sync clear
 
 " Config from coc
-let g:coc_global_extensions = ['coc-tslint-plugin', 'coc-tsserver', 'coc-emmet', 'coc-css', 'coc-html', 'coc-json', 'coc-yank', 'coc-prettier', 'coc-pairs', 'coc-marketplace', 'coc-import-cost', 'coc-styled-components']
+let g:coc_global_extensions = ['coc-tslint-plugin', 'coc-tsserver', 'coc-emmet', 'coc-css', 'coc-html', 'coc-json', 'coc-yank', 'coc-prettier', 'coc-pairs', 'coc-marketplace', 'coc-import-cost', 'coc-styled-components', 'coc-python' ]
 
 " let g:prettier#autoformat = 0
 " autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.vue,*.yaml,*.html PrettierAsync

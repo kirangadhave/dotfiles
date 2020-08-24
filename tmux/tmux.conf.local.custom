@@ -1,9 +1,8 @@
 set -g prefix C-Space
 
+
 set -g default-terminal "screen-256color"
 
-bind | split-window -h -c "#{pane_current_path}"
-bind - split-window -v -c "#{pane_current_path}"
 
 set-environment -g TMUX_PLUGIN_MANAGER_PATH '~/.dotfiles/tmux/plugins'
 
@@ -16,6 +15,9 @@ run '~/.dotfiles/tmux/tpm/tpm'
 set -g @themepack 'basic'
 
 bind r source-file ~/.tmux.conf \; display-message "Reloaded"
+
+set -g pane-border-status bottom
+
 
 set -g base-index 1
 
@@ -37,4 +39,10 @@ bind l select-pane -R
 bind -n S-Left  previous-window
 bind -n S-Right next-window
 
+bind -n M-Left select-pane -L
+bind -n M-Right select-pane -R
+bind -n M-Up select-pane -U
+bind -n M-Down select-pane -D
 
+bind '|' split-window -h -c "#{pane_current_path}"
+bind '-' split-window -v -c "#{pane_current_path}"

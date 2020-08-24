@@ -30,7 +30,39 @@ reload_zsh_config() {
     echo "Loaded ZSH config."
 }
 
+#####################
+# HISTORY           #
+#####################
+[ -z "$HISTFILE" ] && HISTFILE="$HOME/.zhistory"
+HISTSIZE=290000
+SAVEHIST=$HISTSIZE
+
+#####################
+# COLORING          #
+#####################
+autoload colors && colors
+
+#####################
+# FANCY-CTRL-Z      #
+#####################
+function fg-fzf() {
+	job="$(jobs | fzf -0 -1 | sed -E 's/\[(.+)\].*/\1/')" && echo '' && fg %$job
+}
+function fancy-ctrl-z () {
+	if [[ $#BUFFER -eq 0 ]]; then
+		BUFFER=" fg-fzf"
+		zle accept-line -w
+	else
+		zle push-input -w
+		zle clear-screen -w
+	fi
+}
+zle -N fancy-ctrl-z
+bindkey '^Z' fancy-ctrl-z
+
 # Loading configs
 source $ZSH_CONFIG/zinit.zsh
 source $ZSH_CONFIG/theme.zsh
+source $ZSH_CONFIG/setopt.zsh
+source $ZSH_CONFIG/fzf-config.zsh
 

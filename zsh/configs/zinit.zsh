@@ -80,6 +80,7 @@ zinit light lukechilds/zsh-nvm
 zinit ice wait"2" lucid from"gh-r" as"program" mv"exa* -> exa"
 zinit light ogham/exa
 zinit ice wait blockf atpull'zinit creinstall -q .'
+chpwd() exa --icons -Flaigh
 # TODO: Should add an alias
 
 # ZSH DIFF SO FANCY
@@ -103,3 +104,12 @@ zinit light BurntSushi/ripgrep
 # Utility tool for using git interactively. Powered by junegunn/fzf.
 zinit ice wait lucid
 zinit load 'wfxr/forgit'
+
+# LAZYGIT - https://github.com/jesseduffield/lazygit
+# A simple terminal UI for git commands, written in Go with the gocui library.
+zinit ice lucid wait"0" as"program" from"gh-r" mv"lazygit* -> lazygit" atload"alias lg='lazygit'"
+zinit light 'jesseduffield/lazygit'
+alias lg=lazygit
+
+# GIT-FLOW-COMPLETION
+zinit light petervanderdoes/git-flow-completion

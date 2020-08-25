@@ -40,13 +40,25 @@ call plug#begin('$VIM_PLUGINS')
         Plug 'mhinz/vim-startify' 
 
     " Typescript
+        Plug 'neoclide/coc.nvim', {'do': 'yarn install --frozen-lockfile'}
+        Plug 'pangloss/vim-javascript'
+        Plug 'leafgarland/typescript-vim'
+        Plug 'peitalin/vim-jsx-typescript'
         Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
-        Plug 'neoclide/coc.nvim', {'branch': 'release'}
-        Plug 'HerringtonDarkholme/yats.vim'
-        Plug 'MaxMEllon/vim-jsx-pretty'
-        Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
-        Plug 'alvan/vim-closetag'
-
+        Plug 'jparise/vim-graphql'
 
 call plug#end()
 
+autocmd BufEnter *.{js,jsx,ts,tsx} :syntax sync fromstart
+autocmd BufLeave *.{js,jsx,ts,tsx} :syntax sync clear
+
+let g:coc_global_extensions = ['coc-tslint-plugin', 'coc-tsserver', 'coc-emmet', 'coc-css', 'coc-html', 'coc-json', 'coc-yank', 'coc-pairs', 'coc-marketplace', 'coc-import-cost', 'coc-styled-components']
+
+
+if isdirectory('./node_modules') && isdirectory('./node_modules/prettier')
+  let g:coc_global_extensions += ['coc-prettier']
+endif
+
+if isdirectory('./node_modules') && isdirectory('./node_modules/eslint')
+  let g:coc_global_extensions += ['coc-eslint']
+endif

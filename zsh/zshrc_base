@@ -23,21 +23,37 @@ autoload -Uz _zinit
 
 ### End of Zinit's installer chunk
 
+# added by Anaconda3 2018.12 installer
+# >>> conda init >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$(CONDA_REPORT_ERRORS=false '/Users/kirangadhave/anaconda3/bin/conda' shell.bash hook 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    \eval "$__conda_setup"
+else
+    if [ -f "/Users/kirangadhave/anaconda3/etc/profile.d/conda.sh" ]; then
+# . "/Users/kirangadhave/anaconda3/etc/profile.d/conda.sh"  # commented out by conda initialize
+        CONDA_CHANGEPS1=false conda activate base
+    else
+        \export PATH="/Users/kirangadhave/anaconda3/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+# <<< conda init <<<
+
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/Users/kirangadhave/anaconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+__conda_setup="$('/Users/kirangadhave/opt/anaconda3/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
 if [ $? -eq 0 ]; then
     eval "$__conda_setup"
 else
-    if [ -f "/Users/kirangadhave/anaconda3/etc/profile.d/conda.sh" ]; then
-        . "/Users/kirangadhave/anaconda3/etc/profile.d/conda.sh"
+    if [ -f "/Users/kirangadhave/opt/anaconda3/etc/profile.d/conda.sh" ]; then
+        . "/Users/kirangadhave/opt/anaconda3/etc/profile.d/conda.sh"
     else
-        export PATH="/Users/kirangadhave/anaconda3/bin:$PATH"
+        export PATH="/Users/kirangadhave/opt/anaconda3/bin:$PATH"
     fi
 fi
 unset __conda_setup
 # <<< conda initialize <<<
-
 
 
 # Add a zsh reload config
@@ -89,3 +105,4 @@ alias vim=nvim
 # NPM Global config
 npm config set prefix '~/.npm-global'
 export PATH=~/.npm-global/bin:$PATH
+

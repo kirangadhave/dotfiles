@@ -5,6 +5,8 @@ source $HOME/.dotfiles/zsh/paths.zsh
 #####################
 
 # Link zsh config
+echo "source $ZSH_ROOT/zshrc_base" > $ZSH_ROOT/zshrc
+sed -n '/# added by/,/# <<< conda initialize/p' $HOME/.bash_profile >> $ZSH_ROOT/zshrc
 ln -sf $ZSH_ROOT/zshrc $HOME/.zshrc
 # Link  p10k config
 ln -sf $ZSH_CONFIG/p10k.zsh $HOME/.p10k.zsh

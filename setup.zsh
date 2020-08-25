@@ -14,12 +14,14 @@ ln -sf $ZSH_CONFIG/p10k.zsh $HOME/.p10k.zsh
 source $HOME/.zshrc
 
 # Download iterm color profiles
-if [[ -d $ITERM_COLORS ]]; then;
-    cd $ITERM_COLORS
-    git pull
-    cd $DOTFILES
-else;
-    git clone https://github.com/mbadolato/iTerm2-Color-Schemes.git $ITERM_COLORS
+if [[ `uname` == "Darwin" ]]; then
+    if [[ -d $ITERM_COLORS ]]; then;
+        cd $ITERM_COLORS
+        git pull
+        cd $DOTFILES
+    else;
+        git clone https://github.com/mbadolato/iTerm2-Color-Schemes.git $ITERM_COLORS
+    fi
 fi
 
 # Link vimrc

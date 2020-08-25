@@ -1,2 +1,3 @@
-colorscheme molokai
+" colorscheme molokai
+colorscheme gruvbox
 

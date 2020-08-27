@@ -154,7 +154,7 @@ nnoremap <silent><nowait> <space>p  :<C-u>CocListResume<CR>
 " Custom
 
 " Config from coc
-let g:coc_global_extensions = ['coc-tslint-plugin', 'coc-tsserver', 'coc-emmet', 'coc-css', 'coc-html', 'coc-json', 'coc-yank', 'coc-prettier', 'coc-pairs', 'coc-marketplace', 'coc-import-cost', 'coc-styled-components']
+let g:coc_global_extensions = ['coc-tslint-plugin', 'coc-tsserver', 'coc-emmet', 'coc-css', 'coc-html', 'coc-json', 'coc-yank', 'coc-prettier', 'coc-pairs', 'coc-marketplace', 'coc-import-cost', 'coc-styled-components', 'coc-yaml', 'coc-eslint']
 
 au BufNewFile,BufRead *.ts setlocal filetype=typescript
 au BufNewFile,BufRead *.tsx setlocal filetype=typescript.tsx

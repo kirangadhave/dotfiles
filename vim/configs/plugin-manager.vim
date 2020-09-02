@@ -41,9 +41,11 @@ call plug#begin('$VIM_PLUGINS')
 
     " Typescript
         Plug 'neoclide/coc.nvim', {'do': 'yarn install --frozen-lockfile'}
-        Plug 'pangloss/vim-javascript'
-        Plug 'leafgarland/typescript-vim'
-        Plug 'peitalin/vim-jsx-typescript'
+        " Plug 'pangloss/vim-javascript'
+        " Plug 'leafgarland/typescript-vim'
+        " Plug 'peitalin/vim-jsx-typescript'
+        Plug 'MaxMEllon/vim-jsx-pretty'
+        Plug 'HerringtonDarkholme/yats.vim'
         Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
         Plug 'jparise/vim-graphql'
 
@@ -62,3 +64,6 @@ endif
 if isdirectory('./node_modules') && isdirectory('./node_modules/eslint')
   let g:coc_global_extensions += ['coc-eslint']
 endif
+
+""" TODO: Move to proper place
+set re=0

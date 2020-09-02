@@ -67,3 +67,7 @@ endif
 
 """ TODO: Move to proper place
 set re=0
+
+if $TERM_PROGRAM =~ "iTerm"
+  set termguicolors
+endif

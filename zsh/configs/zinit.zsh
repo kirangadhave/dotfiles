@@ -85,8 +85,8 @@ chpwd() exa --icons -Flaigh
 alias _ls=/bin/ls
 alias l='exa'
 alias la='exa -a'
-alias ll='exa -lah'
-alias ls='exa --color=auto'
+alias ll='exa -lah --icons'
+alias ls='exa --color=auto --icons'
 
 # ZSH DIFF SO FANCY
 # diff-so-fancy strives to make your diffs human readable instead of machine readable. This helps improve code quality and helps you

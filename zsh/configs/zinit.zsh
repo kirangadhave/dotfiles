@@ -82,7 +82,11 @@ zinit ice wait"2" lucid from"gh-r" as"program" mv"exa* -> exa"
 zinit light ogham/exa
 zinit ice wait blockf atpull'zinit creinstall -q .'
 chpwd() exa --icons -Flaigh
-# TODO: Should add an alias
+alias _ls=/bin/ls
+alias l='exa'
+alias la='exa -a'
+alias ll='exa -lah'
+alias ls='exa --color=auto'
 
 # ZSH DIFF SO FANCY
 # diff-so-fancy strives to make your diffs human readable instead of machine readable. This helps improve code quality and helps you

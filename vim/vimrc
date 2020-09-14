@@ -48,3 +48,10 @@ hi Visual term=reverse cterm=reverse
 autocmd BufEnter * :syntax sync fromstart
 
 hi MatchParen ctermfg=208 ctermbg=bg
+
+xnoremap @ :<C-u>call ExecuteMacroOverVisualRange()<CR>
+
+function! ExecuteMacroOverVisualRange()
+  echo "@".getcmdline()
+  execute ":'<,'>normal @".nr2char(getchar())
+endfunction

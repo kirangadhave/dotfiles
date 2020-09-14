@@ -85,7 +85,7 @@ chpwd() exa --icons -Flaigh
 alias _ls=/bin/ls
 alias l='exa'
 alias la='exa -a'
-alias ll='exa -lah --icons'
+alias ll='exa -lah --icons --git'
 alias ls='exa --color=auto --icons'
 
 # ZSH DIFF SO FANCY

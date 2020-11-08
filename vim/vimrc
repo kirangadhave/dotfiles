@@ -1,57 +1,63 @@
-if empty(glob('~/.vim/autoload/plug.vim'))
-  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
-    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+if exists('g:vscode')
+    " VSCode extension
+else
+    " ordinary neovim
+    if empty(glob('~/.vim/autoload/plug.vim'))
+      silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+        \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+      autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+    endif
+
+    source $VIM_CONFIG/plugin-manager.vim
+
+    for f in split(globpath('$VIM_CONFIG', '*.vim'), '\n')
+        exe 'source' f
+    endfor
+
+
+    nnoremap <leader>vc :so $MYVIMRC<CR>
+
+    let @/ = ""
+
+    set wildignore+=**/node_modules/**
+    nnoremap <C-q> :close<CR>
+    nnoremap <C-e> :tabedit %<CR>
+    highlight StatusLineNC cterm=bold ctermfg=white ctermbg=darkgray
+
+    nnoremap <leader>r :checktime<CR>
+
+    inoremap <C-a> <C-o>a
+
+    augroup BgHighlight
+        autocmd!
+        autocmd WinEnter * set relativenumber
+        autocmd WinLeave * set norelativenumber
+    augroup END
+
+    augroup BgHighlight
+        autocmd!
+        autocmd WinEnter * set colorcolumn=120
+        autocmd WinLeave * set colorcolumn=0
+    augroup END
+
+    augroup CursorLineOnlyInActiveWindow
+      autocmd!
+      autocmd VimEnter,WinEnter,BufWinEnter * setlocal cursorline
+    augroup END
+      autocmd WinLeave * setlocal nocursorline
+
+    hi Visual term=reverse cterm=reverse
+
+    autocmd BufEnter * :syntax sync fromstart
+
+    hi MatchParen ctermfg=208 ctermbg=bg
+
+    xnoremap @ :<C-u>call ExecuteMacroOverVisualRange()<CR>
+
+    function! ExecuteMacroOverVisualRange()
+      echo "@".getcmdline()
+      execute ":'<,'>normal @".nr2char(getchar())
+    endfunction
 endif
 
-source $VIM_CONFIG/plugin-manager.vim
-
-for f in split(globpath('$VIM_CONFIG', '*.vim'), '\n')
-    exe 'source' f
-endfor
-
 imap jj <ESC>
-
-nnoremap <leader>vc :so $MYVIMRC<CR>
-
-let @/ = ""
-
-set wildignore+=**/node_modules/**
-nnoremap <C-q> :close<CR>
-nnoremap <C-e> :tabedit %<CR>
-highlight StatusLineNC cterm=bold ctermfg=white ctermbg=darkgray
-
-nnoremap <leader>r :checktime<CR>
-
-inoremap <C-a> <C-o>a
-
-augroup BgHighlight
-    autocmd!
-    autocmd WinEnter * set relativenumber
-    autocmd WinLeave * set norelativenumber
-augroup END
-
-augroup BgHighlight
-    autocmd!
-    autocmd WinEnter * set colorcolumn=120
-    autocmd WinLeave * set colorcolumn=0
-augroup END
-
-augroup CursorLineOnlyInActiveWindow
-  autocmd!
-  autocmd VimEnter,WinEnter,BufWinEnter * setlocal cursorline
-augroup END
-  autocmd WinLeave * setlocal nocursorline
-
-hi Visual term=reverse cterm=reverse
-
-autocmd BufEnter * :syntax sync fromstart
-
-hi MatchParen ctermfg=208 ctermbg=bg
-
-xnoremap @ :<C-u>call ExecuteMacroOverVisualRange()<CR>
-
-function! ExecuteMacroOverVisualRange()
-  echo "@".getcmdline()
-  execute ":'<,'>normal @".nr2char(getchar())
-endfunction

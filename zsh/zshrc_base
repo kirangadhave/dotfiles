@@ -69,7 +69,7 @@ source $ZSH_CONFIG/fzf-config.zsh
 alias vi=nvim
 alias vim=nvim
 
-# NPM Global config
-npm config set prefix '~/.npm-global'
-export PATH=~/.npm-global/bin:$PATH
+# # NPM Global config
+# npm config set prefix '~/.npm-global'
+# export PATH=~/.npm-global/bin:$PATH
 
